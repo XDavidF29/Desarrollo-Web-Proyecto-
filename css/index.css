@@ -4,12 +4,12 @@ header {
     display: flex;
     flex-direction: row;
     padding: 10px;
-    top: 0px;
+    position: fixed;
+    top: 0;
     width: 100%;
     z-index: 1000;
     background-color: #134B70;
     justify-content: space-between;
-    
 }
 
 .containerops {
@@ -91,8 +91,9 @@ main{
     justify-content: center;
     padding: 41px;
     margin:0;
-    background:linear-gradient(#134B70 , #EEEEEE 20%)
-
+    background:linear-gradient(#134B70 , #EEEEEE );
+    position: relative;
+    z-index: 1;
 }
 
 .titulos{
@@ -116,6 +117,45 @@ main{
     font-weight: 700;
     margin: 0;
     padding: 0;
+}
+
+.conoceMas {
+    width: 240px;
+    height: 50px;
+    border-radius: 25px;
+    border: 1px solid #3D2525;
+    background: linear-gradient(45deg, #508C9B, #134B70);
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 8px;
+    margin-top: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.conoceMas:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+.parallax {
+    background-image: url('../images/perroMain.jpg');
+    height: 100vh; /* Altura completa de la pantalla */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.conoceMas .icono{
+    width: 20px; 
+    height: auto; 
+    margin-right: 8px;
 }
 
 footer{
