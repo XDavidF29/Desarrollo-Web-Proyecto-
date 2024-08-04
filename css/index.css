@@ -133,6 +133,74 @@ main{
     padding: 0;
 }
 
+.contenido h3{
+
+    margin-top: 100px;
+}
+
+.contenido h4{
+    margin-top: 100px;
+
+}
+
+.opiniones {
+    display: flex;
+    flex-direction: row;
+    gap: 56px;
+    padding: 20px;
+}
+
+.opinion {
+    border-radius: 15px;
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 8px #134B70;
+    background-color: white;
+}
+
+main h4{
+
+    background-color: #134B70;
+    width: 1000px;
+    padding: 8px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.productosGenerales{
+    display:flex;
+    flex-direction: row;
+    gap: 75px;
+    padding:20px;
+}
+
+.product{
+
+    background-color: white;
+    border-radius: 15px;
+    width:300px;
+    box-shadow: 0 12px 12px #134B70;
+}
+
+.product h5{
+    text-align: center;
+}
+
+.verMas{
+
+    background-color: #134B70;
+    width:120px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px #134B70;
+    transition: transform 0.2s, box-shadow 0.2s;
+
+}
+
+.verMas:hover{
+
+    transform: scale(1.05);
+}
 
 /*Personalizacion del boton "Conoce mas"*/
 .conoceMas {
@@ -171,6 +239,11 @@ main{
     margin-right: 8px;
 }
 
+.mensajes h1{
+
+    padding: 100px;
+    color:black;
+}
 /*Se le da el color al footer*/
 footer{
 
