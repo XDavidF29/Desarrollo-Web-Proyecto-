@@ -218,7 +218,7 @@ main h4{
 /*Impresion optica cuando se pone el cursor sobre el boton*/
 .conoceMas:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 15px #508C9B;
 }
 
 
@@ -239,9 +239,9 @@ main h4{
     margin-right: 8px;
 }
 
-.mensajes h1{
+.mensajes h1, h2{
 
-    padding: 100px;
+    padding: 50px;
     text-align: center;
     color:black;
 }
@@ -249,16 +249,30 @@ main h4{
 .mensajes h2{
 
     color:black;
-    padding: 10px;
     text-align: center;
 
 }
 
 .mensajes form {
+    padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 2px solid #134B70; /* Añade un borde */
+    border-radius: 10px; /* Redondea las esquinas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade sombra para el efecto de recuadro */
+    background-color: #f5f5f5; /* Fondo blanco o claro */
+    width: 40%; /* Ajusta el ancho del formulario */
+    margin: auto; 
+    box-shadow: 0 6px 15px #508C9B;
+}
 
+.mensajes form label {
+    font-size: 16px; 
+    color: black;
+    margin-bottom: 8px; 
+    display: block; 
+    text-transform: none; 
 }
 
 .mensajes form textarea {
@@ -295,7 +309,8 @@ footer{
 footer{
     display:flex;
     flex-direction: row ;
-    background:linear-gradient(#EEEEEE 20%, #508C9B)
+    background:linear-gradient(#EEEEEE 20%, #508C9B);
+
 }
 
 /*Se le da el color al texto de copyright*/
