@@ -391,4 +391,17 @@ footer{
     color: black;
 }
 
+<<<<<<< HEAD
+=======
+/*Los logos de las redes sociales son ubicados en el footer la derecha de la pantalla*/
+.redes{
+
+    display:flex;
+    flex-grow:1;
+    justify-content: end;
+}
+
+/*Se ponen las caracteristicas de la pagina pegadas a la pantalla*/
+html, body{
+>>>>>>> 110263939bdc934eff9ed14c3ade4dbd27d83178
 
