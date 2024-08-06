@@ -407,10 +407,11 @@ footer{
 
     display:flex;
     flex-grow:1;
-    justify-content: end;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 400px;
 }
 
-
-
-
-
+.redes .a{
+    margin: 30px;
+}
