@@ -7,7 +7,8 @@ Desarrolladores:
 
 ## Veterinaria Petdiatria
 ![Logo Petdiatria](./images/LogoPetdiatria.png)
-Pagina web de la veterinaria PetDiatria, diseñado empleando herramientas de programacion.
+
+- Pagina web de la veterinaria PetDiatria, diseñado empleando herramientas de programacion.
 
 ### Descripcion
 Esta pagina web proporciona diferentes servicios para tu mascota, un equipo de veterinarios especializado para tratar con la mayor atención posible, permitiendo a los usuarios disfrutar de una gran experiencia junto a sus mascotas.
