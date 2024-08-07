@@ -5,7 +5,7 @@ Desarrolladores:
 - Miguel Bayona Rivera
 - David Parra Beltran
 
-![Logo Petdiatria](./images/logo.png)
+![Logo Petdiatria](./images/Logo.png)
 
 ## Veterinaria Petdiatria
 Pagina web de la veterinaria PetDiatria, diseñado empleando herramientas de programacion.
