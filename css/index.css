@@ -153,7 +153,17 @@ main{
     font-weight: bold;
 }
 
-
+.presentacion p{
+    margin-top: 150px;
+    position: relative;
+    z-index: 1;
+    justify-content: center;
+    font-size: 25px;
+    text-align: center;
+  }
+.presentacion img{
+    float: right
+}
 .iconos img{
     width: 100px;
     height: 100px;
@@ -176,14 +186,13 @@ main{
     padding: 0;
 }
 
-
 .opiniones {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 1px;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 10px;
 }
 
 .opiniones h3{
