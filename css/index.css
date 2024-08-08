@@ -198,6 +198,13 @@ main{
     background-color: white;
 }
 
+.opinion img{
+    width: 100px;
+    height: 95px;
+    border-radius: 100%;
+    margin-bottom: 20px;
+}
+
 main h4{
     display: flex;
     background-color: #134B70;
@@ -300,6 +307,10 @@ main h4{
 
 .mensajes{
     margin-top: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .mensajes h1, .mensajes h2 {
@@ -320,7 +331,7 @@ main h4{
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 600px; /* Limita el ancho máximo del formulario */
-    margin: 0 auto; /* Centra el formulario horizontalmente */
+    margin-bottom:30px /* Centra el formulario horizontalmente */
 }
 
 .mensajes form label {
@@ -381,7 +392,6 @@ footer{
     flex-direction: row ;
     background:linear-gradient(#EEEEEE 20%, #508C9B);
     padding: 70px;
-    margin-top: 50px;
 }
 
 
@@ -391,11 +401,17 @@ footer{
     color: black;
 }
 
+
 /*Los logos de las redes sociales son ubicados en el footer la derecha de la pantalla*/
 .redes{
 
     display:flex;
     flex-grow:1;
-    justify-content: end;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 400px;
 }
 
+.redes .a{
+    margin: 30px;
+}
