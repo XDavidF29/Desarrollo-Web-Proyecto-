@@ -31,6 +31,13 @@ header {
     width: 80%;
 }
 
+.button-login-reg{
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    justify-content: space-between;
+}
+
 /*Se le da estetica a los botones del header*/
 .opciones, .opcionesSignIn, .opcionesRegister {
     text-decoration: none;
@@ -47,9 +54,11 @@ header {
     color: black;
     border: none;
     cursor: pointer;
-    border-radius: 16px;
+    border-radius: 25px;
     margin-left: 10px;
     align-self: center;
+    width: 100px;
+    height:40px;
 }
 
 /*Se le da el color y el bordado al boton de Register*/
@@ -58,16 +67,14 @@ header {
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 16px;
+    border-radius: 25px;
     margin-left: 10px;
     align-self: center;
+    width: 100px;
+    height:40px;
 }
 
-/*Se ubican los botones uno al lado de otro*/
-.button-login-reg{
-    display: flex;
-    flex-direction: row;
-}
+
 
 /*Se ubica la imagen principal de modo que se pueda ver bien*/
 .logoHeader img {
@@ -128,6 +135,49 @@ main{
     gap: 8px;
 }
 
+.iconos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 100px;
+    width: 800px;
+}
+
+.iconos p{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.presentacion p{
+    margin-top: 150px;
+    position: relative;
+    z-index: 1;
+    justify-content: center;
+    font-size: 25px;
+    text-align: center;
+  }
+
+  
+.presentacion img{
+    float: right
+    
+}
+
+.presentacion img::after{
+
+    background: linear-gradient(to right top, #05193799, #004d7a99, #00879399, #00bf7299, #a8eb1299);
+
+
+}
+.iconos img{
+    width: 100px;
+    height: 100px;
+}
+
 
 /*Se le da el color y el tamaño al titulo principal*/
 .contenido h1{
@@ -147,14 +197,13 @@ main{
     padding: 0;
 }
 
-
 .opiniones {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 1px;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 10px;
 }
 
 .opiniones h3{
@@ -380,25 +429,49 @@ main h4{
 
 
 /*Se le da el color al footer*/
-footer{
-
-    background-color: #508C9B;
-    
-}
 
 /*Se le da el degradado a la pagina*/
 footer{
     display:flex;
     flex-direction: row ;
-    background:linear-gradient(#EEEEEE 20%, #508C9B);
-    padding: 70px;
+    justify-content: space-between;
+    align-items: start;
+    height: 300px;
+    background:linear-gradient( #EEEEEE 20%, #508C9B);
 }
 
+footer .nosotros img{
+
+    width: 150px;
+    height: 150px;
+    border-radius: 90%;
+
+}
+footer .nosotros p{
+    
+    color: white;
+    font-size: 20px;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+
+}
+footer .redes img{
+
+    width: 70px;
+    height: 70px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 30%;
+
+}
 
 
 /*Se le da el color al texto de copyright*/
 .copy{
     color: black;
+    margin-left: 70px;
+    width: 30%;
 }
 
 
@@ -406,12 +479,19 @@ footer{
 .redes{
 
     display:flex;
-    flex-grow:1;
     align-items: center;
     justify-content: space-between;
-    margin-left: 400px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
-.redes .a{
-    margin: 30px;
+.nosotros{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    border-left: black 1px solid;
+    border-right: black 1px solid;
 }
+
