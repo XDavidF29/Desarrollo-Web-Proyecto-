@@ -22,5 +22,23 @@ public class MascotaServiceImpl implements MascotaService{
     public Collection<Mascota> searchAll() {
         return repo.findAll();
     }
+
+    @Override
+    public void deleteById(int id) {
+        // TODO Auto-generated method stub
+        repo.deleteById(id);
+    }
+
+    @Override
+    public void update(Mascota mascota) {
+        // TODO Auto-generated method stub
+        repo.update(mascota);
+    }
+
+    @Override
+    public void add(Mascota mascota) {
+        // TODO Auto-generated method stub
+        repo.add(mascota);
+    }
     
 }

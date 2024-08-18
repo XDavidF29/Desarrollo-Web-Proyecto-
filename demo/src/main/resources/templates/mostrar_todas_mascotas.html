@@ -67,6 +67,8 @@
                         </td>
                         <td th:text="${mascota.enfermedad}"></td>
                         <td th:text="${mascota.estado}"></td>
+                        <td><a href="#" th:href="@{/mascota/update/{id}(id=${mascota.id})}" class="btn btn-info">Editar</a>
+                            <a href="#" th:href="@{/mascota/delete/{id}(id=${mascota.id})}" class="btn btn-danger">Eliminar</a></td>
                     </tr>
                 </tbody>
             </table>

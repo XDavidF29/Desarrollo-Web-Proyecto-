@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import com.example.demo.entidades.Mascota;
 
 //@SpringBootApplication
+@SuppressWarnings("unused")
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
@@ -21,7 +22,7 @@ public class DemoApplication {
 
 	@Bean
 	public Mascota mascota() {
-		return new Mascota("pepe",
+		return new Mascota(1,"pepe",
 				"chiquita",
 				1,
 				12.3f,
