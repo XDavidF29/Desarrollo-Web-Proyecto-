@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
-@SuppressWarnings("unused")
 @Controller
 @RequestMapping("/mascota")
 public class MascotaController {
@@ -61,6 +60,13 @@ public class MascotaController {
     public String mostrarFormularioEditar(Model model, @PathVariable("id") int idMascota) {
         model.addAttribute("mascota", service.searchById(idMascota));
         return "modificar_mascota";
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateMascota(@PathVariable("id") int idMascota, @ModelAttribute("mascota") Mascota mascota) {
+        mascota.setId(idMascota);
+        service.update(mascota);
+        return "redirect:/mascota/all";
     }
 
     @GetMapping("/delete/{id}")

@@ -29,24 +29,25 @@
         <div class="contenido" id="contenido">
             <h1>Registro de Usuario</h1>
             <p class="tblanco">Digite los siguientes datos para continuar con el registro</p>
-            <form action="">
+            <form th:object="${usuario}" method="post" th:action="@{/usuario/agregar}" >
                 <strong class="tcenter">Datos del usuario</strong>
                 <div class="form-group">
                     <label for="nombrem">Cédula</label>
-                    <input type="text" name="cedulau" id="cedulau" class="form-control">
+                    <input th:field="*{cedula}" type="text" name="cedulau" id="cedulau" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="razam">Nombre</label>
-                    <input type="text" name="nombreu" id="nombreu" class="form-control">
+                    <label for="nombreu">Nombre</label>
+                    <input th:field="*{nombre}" type="text" name="nombreu" id="nombreu" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="edadm">Correo</label>
-                    <input type="text" name="correou" id="correou" class="form-control">
+                    <label for="correou">Correo</label>
+                    <input th:field="*{correo}" type="text" name="correou" id="correou" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="pesom">Celular</label>
-                    <input type="text" name="celularu" id="celularu" class="form-control">
+                    <label for="celularu">Celular</label>
+                    <input th:field="*{celular}" type="text" name="celularu" id="celularu" class="form-control">
                 </div>
+                
                 <button type="submit" class="btn btn-primary">Registrar</button>
             </form>
         </div>        
