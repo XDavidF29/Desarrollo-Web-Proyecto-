@@ -39,7 +39,7 @@ public class UsuarioController {
     @PostMapping("/agregar")
     public String agregarUsuario(@ModelAttribute("usuario") Usuario usuario) {
         service.add(usuario);
-        return "redirect:/";
+        return "usuario_exitoso";
     }
 
     @GetMapping("/update/{id}")
