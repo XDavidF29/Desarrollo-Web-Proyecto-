@@ -5,21 +5,27 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
+
+import com.example.demo.entidades.Mascota;
 import com.example.demo.entidades.Usuario;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Repository
 public class UsuarioRepository {
     
+    
     private Map<Integer, Usuario> data=new HashMap<>();
 
     public UsuarioRepository(){
-        data.put(1, new Usuario(1, "Juan", "", 0, 0,null));
-        data.put(2, new Usuario(2, "Pedro", "", 0,0,null));
-        data.put(3, new Usuario(3, "Maria", "", 0,0,null));
-        data.put(4, new Usuario(4, "Jose", "", 0,0,null));
-        data.put(5, new Usuario(5, "Luis", "", 0,0,null));
-        data.put(6, new Usuario(6, "Ana", "", 0,0,null));
+        data.put(1, new Usuario(1, "Juan", "", 0, 0,new ArrayList<>()));
+        data.put(2, new Usuario(2, "Pedro", "", 0,0,new ArrayList<>()));
+        data.put(3, new Usuario(3, "Maria", "", 0,0,new ArrayList<>()));
+        data.put(4, new Usuario(4, "Jose", "", 0,0,new ArrayList<>()));
+        data.put(5, new Usuario(5, "Luis", "", 0,0,new ArrayList<>()));
+        data.put(6, new Usuario(6, "Ana", "", 0,0,new ArrayList<>()));
     }
 
     public Usuario findById(int id){
@@ -43,5 +49,18 @@ public class UsuarioRepository {
         int lastId=data.get(tam).getId();
         usuario.setId(lastId+1);
         data.put(usuario.getId(), usuario);
+    }
+
+    public void addMascotaToUsuario(int idUsuario, Mascota mascota) {
+        Usuario usuario = data.get(idUsuario);
+        if (usuario != null) {
+            List<Mascota> mascotas = usuario.getMascotas();
+            if (mascotas == null) {
+                mascotas = new ArrayList<>();
+            }
+            mascotas.add(mascota);
+            usuario.setMascotas(mascotas);
+            update(usuario); 
+        }
     }
 }

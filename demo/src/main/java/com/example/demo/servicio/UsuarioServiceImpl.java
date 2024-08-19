@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entidades.Usuario;
+import com.example.demo.entidades.Mascota;
 import com.example.demo.repositorio.UsuarioRepository;
 
 @Service
@@ -37,5 +38,10 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public Collection<Usuario> searchAll() {
         return repo.findAll();
+    }
+
+    @Override
+    public void addMascotaToUsuario(int idUsuario, Mascota mascota) {
+        repo.addMascotaToUsuario(idUsuario, mascota);
     }
 }
