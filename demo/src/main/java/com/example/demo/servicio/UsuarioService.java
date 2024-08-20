@@ -13,4 +13,5 @@ public interface UsuarioService {
     public void update(Usuario usuario);
     public void add(Usuario usuario);
     public void addMascotaToUsuario(int idUsuario, Mascota mascota);  
+    public boolean verificarCredenciales(String correo, String password);
 } 

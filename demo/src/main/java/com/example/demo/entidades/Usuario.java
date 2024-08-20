@@ -9,17 +9,26 @@ public class Usuario {
     private String correo;
     private int celular;
     private int cedula;
+    private String password;
     private List<Mascota> mascotas;
 
-    public Usuario(Integer id, String nombre, String correo, int celular, int cedula, List<Mascota> mascotas) {
+    public Usuario(Integer id, String nombre, String correo, int celular, int cedula, String password, List<Mascota> mascotas) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.celular = celular;
         this.cedula = cedula;
+        this.password = password;
         this.mascotas = null;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
     public Integer getId() {
         return id;
     }

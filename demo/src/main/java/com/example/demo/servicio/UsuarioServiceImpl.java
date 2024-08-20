@@ -44,4 +44,8 @@ public class UsuarioServiceImpl implements UsuarioService {
     public void addMascotaToUsuario(int idUsuario, Mascota mascota) {
         repo.addMascotaToUsuario(idUsuario, mascota);
     }
+    @Override
+    public boolean verificarCredenciales(String correo, String password) {
+        return repo.verificarCredenciales(correo, password);
+    }
 }

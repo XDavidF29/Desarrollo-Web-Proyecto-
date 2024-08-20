@@ -20,12 +20,12 @@ public class UsuarioRepository {
     private Map<Integer, Usuario> data=new HashMap<>();
 
     public UsuarioRepository(){
-        data.put(1, new Usuario(1, "Juan", "", 0, 0,new ArrayList<>()));
-        data.put(2, new Usuario(2, "Pedro", "", 0,0,new ArrayList<>()));
-        data.put(3, new Usuario(3, "Maria", "", 0,0,new ArrayList<>()));
-        data.put(4, new Usuario(4, "Jose", "", 0,0,new ArrayList<>()));
-        data.put(5, new Usuario(5, "Luis", "", 0,0,new ArrayList<>()));
-        data.put(6, new Usuario(6, "Ana", "", 0,0,new ArrayList<>()));
+        data.put(1, new Usuario(1, "Juan", "a", 0, 0,"123",new ArrayList<>()));
+        data.put(2, new Usuario(2, "Pedro", "", 0,0,"123",new ArrayList<>()));
+        data.put(3, new Usuario(3, "Maria", "", 0,0,"123",new ArrayList<>()));
+        data.put(4, new Usuario(4, "Jose", "", 0,0,"123",new ArrayList<>()));
+        data.put(5, new Usuario(5, "Luis", "", 0,0,"123",new ArrayList<>()));
+        data.put(6, new Usuario(6, "Ana", "", 0,0,"123",new ArrayList<>()));
     }
 
     public Usuario findById(int id){
@@ -62,5 +62,15 @@ public class UsuarioRepository {
             usuario.setMascotas(mascotas);
             update(usuario); 
         }
+    }
+    public Usuario findByCorreo(String correo) {
+        return data.values().stream()
+            .filter(usuario -> usuario.getCorreo().equals(correo))
+            .findFirst()
+            .orElse(null);
+    }
+    public boolean verificarCredenciales(String correo, String password) {
+        Usuario usuario = findByCorreo(correo);
+        return usuario != null && usuario.getPassword().equals(password);
     }
 }

@@ -31,8 +31,23 @@ public class UsuarioController {
     }
 
     @GetMapping("/login")
-    public String logincrear_Usuario(){
+    public String mostrarLoginForm(Model model) {
+        model.addAttribute("usuario", new Usuario(0,"", "", 0, 0,"",null));
         return "login_usuario";
+    }
+
+    @PostMapping("/login")
+    public String autenticarUsuario(@RequestParam("correo") String correo, 
+                                    @RequestParam("password") String password, 
+                                    Model model) {
+        boolean autenticado = service.verificarCredenciales(correo, password);
+        if (autenticado) {
+            model.addAttribute("mensaje", "Bienvenido");
+            return "index"; // Cambia a la página principal después del login
+        } else {
+            model.addAttribute("error", "Correo o contraseña incorrectos");
+            return "login_usuario";
+        }
     }
 
     @GetMapping("/all")
@@ -43,7 +58,7 @@ public class UsuarioController {
 
     @GetMapping("/add")
     public String mostrarFormularioCrear(Model model) {
-        Usuario usuario = new Usuario(0,"", "", 0, 0,null);
+        Usuario usuario = new Usuario(0,"", "", 0, 0,"",null);
         model.addAttribute("usuario", usuario);
         return "crear_usuario";
     }
