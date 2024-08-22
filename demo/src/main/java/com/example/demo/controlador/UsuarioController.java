@@ -32,7 +32,7 @@ public class UsuarioController {
 
     @GetMapping("/login")
     public String mostrarLoginForm(Model model) {
-        model.addAttribute("usuario", new Usuario(0,"", "", 0, 0,"",null));
+        model.addAttribute("usuario", new Usuario(0, "", "", 0, 0, "", null));
         return "login_usuario";
     }
 
@@ -41,13 +41,19 @@ public class UsuarioController {
                                     @RequestParam("password") String password, 
                                     Model model) {
         boolean autenticado = service.verificarCredenciales(correo, password);
+        
         if (autenticado) {
-            model.addAttribute("mensaje", "Bienvenido");
-            return "index"; // Cambia a la página principal después del login
+            Usuario usuario = service.searchByCorreo(correo);
+            if (usuario != null) {
+                model.addAttribute("usuario", usuario);
+                model.addAttribute("mascotas", usuario.getMascotas());
+                return "datalles_usuario"; 
+            }
         } else {
             model.addAttribute("error", "Correo o contraseña incorrectos");
-            return "login_usuario";
         }
+        
+        return "login_usuario"; 
     }
 
     @GetMapping("/all")
@@ -69,21 +75,28 @@ public class UsuarioController {
         return "usuario_exitoso";
     }
 
-    @GetMapping("/update/{id}")
-    public String mostrarFormularioEditar(Model model, @PathVariable("id") int idusuario) {
-        model.addAttribute("usuario", service.searchById(idusuario));
-        return "modificar_usuario";
-    }
-
     @PostMapping("/update/{id}")
     public String updateUsuario(@PathVariable("id") int idusuario, @ModelAttribute("usuario") Usuario usuario) {
         usuario.setId(idusuario);
         service.update(usuario);
         return "redirect:/usuario/all";
     }
+    @GetMapping("/update/{id}")
+    public String mostrarFormularioEditar(Model model, @PathVariable("id") int idusuario) {
+        Usuario usuario = service.searchById(idusuario);
+        if (usuario == null) {
+            throw new NotFoundException(idusuario);
+        }
+        model.addAttribute("usuario", usuario);
+        return "modificar_usuario";
+    }
 
     @GetMapping("/delete/{id}")
-    public String eliminarUsuario( @PathVariable("id") int idusuario) {
+    public String eliminarUsuario(@PathVariable("id") int idusuario) {
+        Usuario usuario = service.searchById(idusuario);
+        if (usuario == null) {
+            throw new NotFoundException(idusuario);
+        }
         service.deleteById(idusuario);
         return "redirect:/usuario/all";
     }
@@ -91,6 +104,9 @@ public class UsuarioController {
     @GetMapping("/find")
     public String mostrarUsuario(Model model, @RequestParam("id") int idUsuario) {
         Usuario usuario = service.searchById(idUsuario);
+        if (usuario == null) {
+            throw new NotFoundException(idUsuario);
+        }
         Mascota mascota = mascotaService.searchById(1);
         service.addMascotaToUsuario(idUsuario, mascota);
         model.addAttribute("usuario", usuario);

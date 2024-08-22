@@ -48,4 +48,9 @@ public class UsuarioServiceImpl implements UsuarioService {
     public boolean verificarCredenciales(String correo, String password) {
         return repo.verificarCredenciales(correo, password);
     }
+    @Override
+    public Usuario searchByCorreo(String correo){
+        return repo.findByCorreo(correo);
+    }
+
 }

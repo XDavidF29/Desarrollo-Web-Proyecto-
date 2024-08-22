@@ -21,7 +21,7 @@ public class UsuarioRepository {
 
     public UsuarioRepository(){
         data.put(1, new Usuario(1, "Juan", "a", 0, 0,"123",new ArrayList<>()));
-        data.put(2, new Usuario(2, "Pedro", "", 0,0,"123",new ArrayList<>()));
+        data.put(2, new Usuario(2, "Pedro", "b", 0,0,"123",new ArrayList<>()));
         data.put(3, new Usuario(3, "Maria", "", 0,0,"123",new ArrayList<>()));
         data.put(4, new Usuario(4, "Jose", "", 0,0,"123",new ArrayList<>()));
         data.put(5, new Usuario(5, "Luis", "", 0,0,"123",new ArrayList<>()));

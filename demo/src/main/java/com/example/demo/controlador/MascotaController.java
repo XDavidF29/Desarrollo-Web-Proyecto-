@@ -74,4 +74,6 @@ public class MascotaController {
         service.deleteById(idMascota);
         return "redirect:/mascota/all";
     }
+
+    
 }
