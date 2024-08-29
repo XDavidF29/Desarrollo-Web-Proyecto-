@@ -48,13 +48,13 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public boolean verificarCredenciales(String correo, String password) {
-        Usuario usuario = repo.findByCorreo(correo);
-        return usuario != null && usuario.getPassword().equals(password);
+    public boolean verificarCredenciales(int cedula) {
+        Usuario usuario = repo.findByCedula(cedula);
+        return usuario != null && usuario.getCedula()==cedula;
     }
 
     @Override
-    public Usuario searchByCorreo(String correo) {
-        return repo.findByCorreo(correo);
+    public Usuario searchByCedula(int cedula) {
+        return repo.findByCedula(cedula);
     }
 }

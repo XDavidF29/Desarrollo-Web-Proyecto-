@@ -7,6 +7,6 @@ import com.example.demo.entidades.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
-    Usuario findByCorreo(String correo);
+    Usuario findByCedula(int cedula);
 
 }

@@ -37,13 +37,12 @@ public class UsuarioController {
     }
 
     @PostMapping("/login")
-    public String autenticarUsuario(@RequestParam("correo") String correo, 
-                                    @RequestParam("password") String password, 
+    public String autenticarUsuario(@RequestParam("cedula") int cedula, 
                                     Model model) {
-        boolean autenticado = service.verificarCredenciales(correo, password);
+        boolean autenticado = service.verificarCredenciales(cedula);
         
         if (autenticado) {
-            Usuario usuario = service.searchByCorreo(correo);
+            Usuario usuario = service.searchByCedula(cedula);
             if (usuario != null) {
                 model.addAttribute("usuario", usuario);
                 model.addAttribute("mascotas", usuario.getMascotas());

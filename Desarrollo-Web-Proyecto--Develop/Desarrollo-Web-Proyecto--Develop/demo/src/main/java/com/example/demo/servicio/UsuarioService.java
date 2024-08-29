@@ -12,7 +12,7 @@ public interface UsuarioService {
     public void deleteById(int id);
     public void update(Usuario usuario);
     public void add(Usuario usuario);
-    public Usuario searchByCorreo(String correo);
+    public Usuario searchByCedula(int cedula);
     public void addMascotaToUsuario(int idUsuario, Mascota mascota);  
-    public boolean verificarCredenciales(String correo, String password);
+    public boolean verificarCredenciales(int cedula);
 } 
