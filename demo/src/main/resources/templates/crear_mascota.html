@@ -52,8 +52,12 @@
                     <input th:field="*{enfermedad}" type="text" name="enfermedadm" id="enfermedadm" class="form-control" placeholder="Enfermedad de la mascota">
                 </div>
                 <div class="form-group">
+                    <label for="cdueno">Digite la cedula del dueño</label>
+                    <input type="text" id="cdueno" name="cdueno" class="form-control">
+                </div>
+                <div class="form-group">
                     <label for="imagen">Subir Imagen de la Mascota</label>
-                    <input th:field="*{foto}" type="file" id="imagen" name="imagen" accept="image/*" class="form-control-file">
+                    <input th:field="*{foto}" type="text" id="imagen" name="imagen" class="form-control">
                 </div>
                 <button type="submit" class="btn btn-primary">Registrar Mascota</button>
             </form>

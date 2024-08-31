@@ -52,8 +52,8 @@
                     <input th:field="*{enfermedad}" type="text" name="enfermedadm" id="enfermedadm" class="form-control" placeholder="Enfermedad de la mascota">
                 </div>
                 <div class="form-group">
-                    <label for="imagen">Subir Imagen de la Mascota</label>
-                    <input th:field="*{foto}" type="file" id="imagen" name="imagen" accept="image/*" class="form-control-file">
+                    <label for="imagen">Subir enlace de la Imagen de la Mascota</label>
+                    <input th:field="*{foto}" type="text" id="imagen" name="imagen" class="form-control-file">
                 </div>
                 <button type="submit" class="btn btn-primary">Registrar Mascota</button>
             </form>

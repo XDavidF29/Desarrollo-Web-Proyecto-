@@ -2,6 +2,8 @@ package com.example.demo.entidades;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,33 +23,30 @@ public class Usuario {
     private String correo;
     private int celular;
     private int cedula;
-    private String password;
 
-    @OneToMany(mappedBy = "usuario")  // Relación bidireccional
-    private List<Mascota> mascotas;
+    @OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL, orphanRemoval = true)  // Relación bidireccional
+    private List<Mascota> mascotas = new ArrayList<>();
 
     // Constructor vacío
     public Usuario() {
-        this.mascotas = new ArrayList<>();  // Inicializa la lista para evitar NullPointerException
+    
     }
 
     // Constructor con todos los campos
-    public Usuario(Integer id, String nombre, String correo, int celular, int cedula, String password, List<Mascota> mascotas) {
+    public Usuario(Integer id, String nombre, String correo, int celular, int cedula, List<Mascota> mascotas) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.celular = celular;
         this.cedula = cedula;
-        this.password = password;
         this.mascotas = mascotas != null ? mascotas : new ArrayList<>();  // Asegura que mascotas no sea null
     }
 
-    public Usuario(String nombre, String correo, int celular, int cedula, String password, List<Mascota> mascotas) {
+    public Usuario(String nombre, String correo, int celular, int cedula, List<Mascota> mascotas) {
         this.nombre = nombre;
         this.correo = correo;
         this.celular = celular;
         this.cedula = cedula;
-        this.password = password;
         this.mascotas = mascotas != null ? mascotas : new ArrayList<>();  // Asegura que mascotas no sea null
     }
 
@@ -93,14 +92,6 @@ public class Usuario {
         this.cedula = cedula;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public List<Mascota> getMascotas() {
         if (mascotas == null) {
             mascotas = new ArrayList<>();  // Inicializa la lista si es null
@@ -110,5 +101,15 @@ public class Usuario {
 
     public void setMascotas(List<Mascota> mascotas) {
         this.mascotas = mascotas;
+    }
+
+    public void addMascota(Mascota mascota) {
+        mascotas.add(mascota);
+        mascota.setUsuario(this);
+    }
+
+    public void removeMascota(Mascota mascota) {
+        mascotas.remove(mascota);
+        mascota.setUsuario(null);
     }
 }

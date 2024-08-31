@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entidades.Usuario;
-import com.example.demo.entidades.Mascota;
+import com.example.demo.repositorio.UsuarioRepository;
 import com.example.demo.servicio.UsuarioService;
 import com.example.demo.servicio.MascotaService;
+
 
 
 @Controller
@@ -25,6 +26,9 @@ public class UsuarioController {
     @Autowired
     MascotaService mascotaService;
 
+    @Autowired
+    UsuarioRepository UsuarioRepository;
+
     @GetMapping("/registro")
     public String crear_Usuario(){
         return "crear_usuario";
@@ -32,7 +36,7 @@ public class UsuarioController {
 
     @GetMapping("/login")
     public String mostrarLoginForm(Model model) {
-        model.addAttribute("usuario", new Usuario(0, "", "", 0, 0, "", null));
+        model.addAttribute("usuario", new Usuario(0, "", "", 0, 0,  null));
         return "login_usuario";
     }
 
@@ -63,16 +67,24 @@ public class UsuarioController {
 
     @GetMapping("/add")
     public String mostrarFormularioCrear(Model model) {
-        Usuario usuario = new Usuario(0,"", "", 0, 0,"",null);
+        Usuario usuario = new Usuario(0,"", "", 0, 0,null);
         model.addAttribute("usuario", usuario);
         return "crear_usuario";
     }
 
     @PostMapping("/agregar")
-    public String agregarUsuario(@ModelAttribute("usuario") Usuario usuario) {
+    public String agregarUsuario(@ModelAttribute("usuario") Usuario usuario, Model model) {
+    
+        Usuario usuarioExistente = UsuarioRepository.findByCedula(usuario.getCedula());
+        if (usuarioExistente != null) {
+            model.addAttribute("error", "La cédula ya está registrada en el sistema.");
+            return "crear_usuario";
+        }
+        
         service.add(usuario);
         return "usuario_exitoso";
     }
+
 
     @PostMapping("/update/{id}")
     public String updateUsuario(@PathVariable("id") int idusuario, @ModelAttribute("usuario") Usuario usuario) {
@@ -106,8 +118,6 @@ public class UsuarioController {
         if (usuario == null) {
             throw new NotFoundException(idUsuario);
         }
-        Mascota mascota = mascotaService.searchById(1L);
-        service.addMascotaToUsuario(idUsuario, mascota);
         model.addAttribute("usuario", usuario);
         model.addAttribute("mascotas", usuario.getMascotas());
         return "datalles_usuario";

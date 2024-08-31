@@ -7,7 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entidades.Mascota;
+import com.example.demo.entidades.Usuario;
 import com.example.demo.servicio.MascotaService;
+import com.example.demo.servicio.UsuarioService;
+import com.example.demo.repositorio.UsuarioRepository;
+import com.example.demo.repositorio.MascotaRepository;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,6 +26,10 @@ public class MascotaController {
     private Mascota mascota;
 
     @Autowired MascotaService service;
+    @Autowired UsuarioService UsuarioService;
+
+    @Autowired UsuarioRepository usuarioRepository;
+    @Autowired MascotaRepository mascotaRepository;
 
     @GetMapping("/all")
     public String mostrarMascotas(Model model) {
@@ -51,8 +59,14 @@ public class MascotaController {
     }
 
     @PostMapping("/agregar")
-    public String agregarMascota(@ModelAttribute("mascota") Mascota mascota) {
-        service.add(mascota);
+    public String agregarMascota(@ModelAttribute("mascota") Mascota mascota, @RequestParam("cdueno") int cdueno) {
+        Usuario usuario = usuarioRepository.findByCedula(cdueno);
+        if (usuario != null) {
+            usuario.addMascota(mascota);
+            usuarioRepository.save(usuario);
+        } else {
+            return "redirect:/error";
+        }
         return "redirect:/mascota/all";
     }
 
@@ -65,6 +79,9 @@ public class MascotaController {
     @PostMapping("/update/{id}")
     public String updateMascota(@PathVariable("id") Long idMascota, @ModelAttribute("mascota") Mascota mascota) {
         mascota.setId(idMascota);
+        Mascota pet=service.searchById(idMascota);
+        mascota.setUsuario(pet.getUsuario());
+        mascota.setEstado(pet.getEstado());
         service.update(mascota);
         return "redirect:/mascota/all";
     }
