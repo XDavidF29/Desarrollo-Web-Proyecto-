@@ -82,7 +82,7 @@ public class UsuarioController {
         }
         
         service.add(usuario);
-        return "usuario_exitoso";
+        return "redirect:/usuario/all";
     }
 
 

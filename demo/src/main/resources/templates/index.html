@@ -15,8 +15,9 @@
 
             <!--Se diseña el menu de opciones por medio de un contenedor para que el usuario se pueda mover
             tranquilamente por la pagina -->
-            <div class = "logoHeader"> 
-            <img src="../images/LogoPetdiatria.png" height = "150px" alt ="Logo" /> </div>
+            <div class="logoHeader">
+                <a th:href="@{/}"><img src="../images/LogoPetdiatria.png" height="150px" alt="Logo" /></a>
+            </div>
             <div class ="containerops">
 
                 
@@ -25,8 +26,8 @@
                 <a href = "servicios.html" class = "opciones">Servicios</a>
                 <a href = "contacto.html" class = "opciones">Contacto</a>
                 <div class="button-login-reg">
-                    <button type = "submit" class = "opcionesSignIn"> Sign In </button>
-                    <button type = "submit" class = "opcionesRegister"> Register </button>
+                    <a th:href="@{/usuario/login}" style="text-decoration: none;"><button type = "submit" class = "opcionesSignIn"> Sign In </button></a>
+                    <a th:href="@{/usuario/add}" style="text-decoration: none;"><button type = "submit" class = "opcionesRegister"> Register </button></a>
                 </div>
 
                 
