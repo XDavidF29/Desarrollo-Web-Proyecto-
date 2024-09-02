@@ -8,6 +8,39 @@
     padding: 20px;
 }
 
+/* Estilo para las imágenes de mascotas */
+table img {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+/* Estilo para el formulario de búsqueda */
+.container form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.container form .form-control {
+    width: 70%;
+}
+
+.container form .btn-primary {
+    width: 25%;
+}
+
+
+table img:hover {
+    transform: scale(3);
+}
+
+/* Centrar el texto descriptivo en la tabla */
+td, th {
+    text-align: center;
+    vertical-align: middle;
+}
+
 /* Estilo para la tabla */
 table {
     width: 70%;
