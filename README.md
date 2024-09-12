@@ -41,10 +41,10 @@ Esta pagina web proporciona diferentes servicios para tu mascota, un equipo de v
 - "mostrar_todas_mascotas.css" -> Estilos para la página que muestra una lista de todas las mascotas.
 - "usuario_exitoso.css" -> Estilos para una página que parece confirmar una operación exitosa de usuario.
 
-##Diagramas
-###Diagrama de Entidad Relacion
+## Diagramas
+### Diagrama de Entidad Relacion
 ![Logo Petdiatria](./imagenesWeb/EntidadRelacion.png)
 
-##Flujo de Paginas
+## Flujo de Paginas
 ![Logo Petdiatria](./imagenesWeb/FlujoDePaginas.png)
 
