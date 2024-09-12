@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.example.demo.entidades.Usuario;
 import com.example.demo.repositorio.UsuarioRepository;
 import com.example.demo.servicio.UsuarioService;
+
+import jakarta.websocket.Session;
+
 import com.example.demo.servicio.MascotaService;
 
 
@@ -40,14 +42,18 @@ public class UsuarioController {
         return "login_usuario";
     }
 
+    
     @PostMapping("/login")
-    public String autenticarUsuario(@RequestParam("cedula") int cedula, 
-                                    Model model) {
+    public String autenticarUsuario(@RequestParam("cedula") int cedula, Model model) {
+
         boolean autenticado = service.verificarCredenciales(cedula);
         
         if (autenticado) {
+
             Usuario usuario = service.searchByCedula(cedula);
+
             if (usuario != null) {
+                
                 model.addAttribute("usuario", usuario);
                 model.addAttribute("mascotas", usuario.getMascotas());
                 return "datalles_usuario"; 
@@ -58,6 +64,8 @@ public class UsuarioController {
         
         return "login_usuario"; 
     }
+
+
 
     @GetMapping("/all")
     public String mostrarMascotas(Model model) {
@@ -84,7 +92,6 @@ public class UsuarioController {
         service.add(usuario);
         return "redirect:/usuario/all";
     }
-
 
     @PostMapping("/update/{id}")
     public String updateUsuario(@PathVariable("id") int idusuario, @ModelAttribute("usuario") Usuario usuario) {
