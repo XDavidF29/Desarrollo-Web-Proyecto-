@@ -14,6 +14,8 @@ import com.example.demo.repositorio.UsuarioRepository;
 
 import jakarta.transaction.Transactional;
 
+//Cambios dataBase
+
 @Component
 @Transactional
 public class DatabaseInit implements ApplicationRunner {

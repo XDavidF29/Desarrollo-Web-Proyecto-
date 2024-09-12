@@ -9,7 +9,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-//Tratamientos
+
+//Medicamentos
+
 @Entity
 @Table(name = "MEDICAMENTOS_TABLE")
 public class Medicamento {
