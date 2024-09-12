@@ -19,7 +19,6 @@ main {
     transform: scale(1.02);
 }
 
-
 .info ul {
     width: 80%;
     display: flex;
@@ -49,23 +48,23 @@ button:hover {
     background-color: #3B6C78;
 }
 
-.margin-top-50{
+.margin-top-50 {
     margin-top: 50px;
 }
 
 
-/* Estilo para la tabla */
 table {
     margin: 0 auto;
     background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    border-collapse: collapse; /* Evita bordes dobles */
+    border-collapse: collapse;
     overflow: hidden;
     width: 60%;
+    font-size: 18px; 
 }
 
-/* Estilo para los encabezados */
+
 th {
     background-color: #4CAF50;
     color: white;
@@ -73,16 +72,17 @@ th {
     padding: 12px;
     text-transform: uppercase;
     text-align: center;
+    vertical-align: middle; 
 }
 
-/* Estilo para las celdas */
 td {
     padding: 12px;
     text-align: center;
     border-bottom: 1px solid #ddd;
+    vertical-align: middle; 
 }
 
-/* Estilo para las filas */
+
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
@@ -91,9 +91,7 @@ tr:hover {
     background-color: #ddd;
 }
 
-/* Eliminar bordes adicionales */
+
 table, th, td {
-    border: none; /* Elimina el borde de la tabla y celdas */
+    border: none;
 }
-
-
