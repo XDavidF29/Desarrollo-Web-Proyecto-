@@ -8,7 +8,7 @@ Desarrolladores:
 
 
 ## Veterinaria Petdiatria
-![Logo Petdiatria](./images/LogoPetdiatria.png)
+![Logo Petdiatria](./imagenesWeb/LogoPetdiatria.png)
 
 
 
