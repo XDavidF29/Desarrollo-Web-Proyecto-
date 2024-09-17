@@ -32,7 +32,7 @@ public class Tratamiento {
     private Veterinario veterinario;
 
     @ManyToMany //Relación con medicamentos
-    private List<Medicamento> medicamentos = new ArrayList();
+    private List<Medicamento> medicamentos = new ArrayList<>();
     
     //Constructor Vacio
     public Tratamiento() {

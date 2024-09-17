@@ -19,6 +19,7 @@ import com.example.demo.servicio.MascotaService;
 
 
 
+@SuppressWarnings("unused")
 @Controller
 @RequestMapping("/usuario")
 public class UsuarioController {

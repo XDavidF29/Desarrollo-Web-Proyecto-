@@ -27,7 +27,7 @@ public class Medicamento {
     private int unidades_disponibles;
 
     @ManyToMany(mappedBy = "medicamentos")  // Relación muchos a muchos bidireccional con Tratamiento
-    private List<Tratamiento> tratamientos = new ArrayList();
+    private List<Tratamiento> tratamientos = new ArrayList<>();
     
     //Constructor Vacio
     public Medicamento() {

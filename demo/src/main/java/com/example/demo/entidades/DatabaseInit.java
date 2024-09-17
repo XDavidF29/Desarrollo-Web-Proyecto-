@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import com.example.demo.repositorio.MascotaRepository;
 import com.example.demo.repositorio.UsuarioRepository;
+import com.example.demo.repositorio.VeterinarioRepository;
 
 import jakarta.transaction.Transactional;
 
@@ -25,6 +26,9 @@ public class DatabaseInit implements ApplicationRunner {
 
     @Autowired
     UsuarioRepository usuarioRepository;
+    
+    @Autowired
+    VeterinarioRepository veterinarioRepository;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -183,6 +187,109 @@ public class DatabaseInit implements ApplicationRunner {
         mascotaRepository.save(new Mascota("nina", "mediana", 2, 26.0f, "https://images.unsplash.com/photo-1453227588063-bb302b62f50b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGRvZ3xlbnwwfHwwfHx8MA%3D%3D", "ninguna", "excelente"));
         mascotaRepository.save(new Mascota("duque", "grande", 3, 58.0f, "https://images.unsplash.com/photo-1510771463146-e89e6e86560e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGRvZ3xlbnwwfHwwfHx8MA%3D%3D", "ninguna", "bien"));
         mascotaRepository.save(new Mascota("sasha", "grande", 3, 59.0f, "https://plus.unsplash.com/premium_photo-1667030783942-05351fd6c3fc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGRvZ3xlbnwwfHwwfHx8MA%3D%3D", "ninguna", "excelente"));
+
+        veterinarioRepository.save(new Veterinario(24L, "V024", "pass456", "Medicina Felina", 115, "Dra. Patricia Gómez", 
+        "https://www.shutterstock.com/image-photo/veterinarian-cute-dog-on-white-260nw-1538054498.jpg",null));
+        veterinarioRepository.save(new Veterinario(1L, "V001", "pass123", "Cardiología", 100, "Dr. Juan Pérez", 
+        "https://images.unsplash.com/photo-1532615863397-4a6b7ad973d1?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(2L, "V002", "pass234", "Dermatología", 120, "Dra. Ana López", 
+        "https://images.unsplash.com/photo-1513244904703-e01f705cce44?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(3L, "V003", "pass345", "Odontología", 150, "Dr. Carlos Gómez", 
+        "https://images.unsplash.com/photo-1517351683210-3d58f3e2a2e1?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(4L, "V004", "pass456", "Oncología", 80, "Dra. Laura Fernández", 
+        "https://images.unsplash.com/photo-1542902322-28ae53d46f96?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(5L, "V005", "pass567", "Neurología", 90, "Dr. Jorge Ramírez", 
+        "https://images.unsplash.com/photo-1509092276505-431b39b9b5cb?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(6L, "V006", "pass678", "Ortopedia", 110, "Dra. María Torres", 
+        "https://images.unsplash.com/photo-1519133456630-d95ecedc58b0?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(7L, "V007", "pass789", "Reproducción", 130, "Dr. Luis Martínez", 
+        "https://images.unsplash.com/photo-1555685818-5f3c5a18c637?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(8L, "V008", "pass890", "Medicina Interna", 140, "Dra. Isabel García", 
+        "https://images.unsplash.com/photo-1606765086304-f69c4a774062?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(9L, "V009", "pass901", "Anestesiología", 75, "Dr. Sergio Vargas", 
+        "https://images.unsplash.com/photo-1513050665636-8a8dbf6e885e?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(10L, "V010", "pass012", "Emergencias", 160, "Dra. Elena Ruiz", 
+        "https://images.unsplash.com/photo-1566497625-fc589c781c83?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(11L, "V011", "pass123", "Geriatría", 95, "Dr. Roberto Morales", 
+        "https://images.unsplash.com/photo-1543441330-4d717f8a2306?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(12L, "V012", "pass234", "Psiquiatría", 105, "Dra. Verónica Pérez", 
+        "https://images.unsplash.com/photo-1529665213090-9b23559a5827?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(13L, "V013", "pass345", "Cirugía General", 200, "Dr. Felipe Gómez", 
+        "https://images.unsplash.com/photo-1542255974-e0f3d2e1f865?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(14L, "V014", "pass456", "Medicina Preventiva", 85, "Dra. Patricia Fernández", 
+        "https://images.unsplash.com/photo-1546454364-cb1eaf27f6c5?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(15L, "V015", "pass567", "Hematología", 70, "Dr. Álvaro López", 
+        "https://images.unsplash.com/photo-1543278583-9dc6576581cb?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(16L, "V016", "pass678", "Neumología", 60, "Dra. Carmen Jiménez", 
+        "https://images.unsplash.com/photo-1514294236627-3bb26d50c5c7?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(17L, "V017", "pass789", "Terapia Física", 110, "Dr. Nicolás Silva", 
+        "https://images.unsplash.com/photo-1530972758556-79d3e7d95cb1?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(18L, "V018", "pass890", "Medicina Tropical", 125, "Dra. Julia Mendoza", 
+        "https://images.unsplash.com/photo-1589397094520-bd226a15ff7e?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(19L, "V019", "pass901", "Gastroenterología", 95, "Dr. Guillermo Soto", 
+        "https://images.unsplash.com/photo-1554963150-d2d8810aa6a8?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(20L, "V020", "pass012", "Medicina de Urgencias", 140, "Dra. Alejandra Ruiz", 
+        "https://images.unsplash.com/photo-1525902959531-89114f1c51e4?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(21L, "V021", "pass123", "Toxicología", 80, "Dr. Ricardo Molina", 
+        "https://images.unsplash.com/photo-1541672284511-28a74f012b94?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(22L, "V022", "pass234", "Parasitología", 100, "Dra. Gabriela González", 
+        "https://images.unsplash.com/photo-1542239750-57942d4e5e04?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(23L, "V023", "pass345", "Medicina de Animales Exóticos", 65, "Dr. Martín Ortega", 
+        "https://images.unsplash.com/photo-1575579643-5656494d5875?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(24L, "V024", "pass456", "Medicina Felina", 115, "Dra. Patricia Gómez", 
+        "https://images.unsplash.com/photo-1531512970898-7f9d5ea5b7d7?w=500&auto=format&fit=crop&q=60", 
+        null));
+
+    veterinarioRepository.save(new Veterinario(25L, "V025", "pass567", "Medicina Canina", 140, "Dr. Hugo Martínez", 
+        "https://images.unsplash.com/photo-1565070851-0a8b023e9448?w=500&auto=format&fit=crop&q=60", 
+        null));
+
 
         List<Usuario> usuarios = usuarioRepository.findAll();
         List<Mascota> mascotas = mascotaRepository.findAll();
